@@ -1,0 +1,408 @@
+body {
+  background-color: #ebebeb;
+  color: #343a40;
+  font-family: "Poppins", sans-serif;
+}
+
+.container .bg-white {
+  /* box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.1); */
+  border-radius: 0.5rem;
+}
+
+.bg-digitaliz {
+  background-color: #4D77FF;
+  border-radius: 10px;
+}
+
+.bg-digitaliz {
+  background-color: #4D77FF;
+  border-radius: 10px;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 26px;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.w-80 {
+  min-height: 80vh;
+}
+
+/* Navigation Bar */
+
+.navbar {
+  min-height: 5rem;
+}
+
+.nav-item {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.navbar .nav-link.active {
+  color: #4D77FF !important;
+  font-weight: bold;
+}
+
+/* Breadcrumb */
+
+.breadcrumb-container {
+  background-color: #4D77FF !important;
+  color: white !important;
+  border-radius: 0.5rem;
+}
+
+.breadcrumb-item {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: white;
+  content: ">";
+}
+
+.breadcrumb-item > a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Button */
+
+.btn-digitaliz {
+  background-color: #b24693 !important;
+  border: none;
+  color: #ffffff;
+  width: max-content;
+}
+
+.btn-digitaliz:hover {
+  opacity: 0.9;
+  color: #ffffff;
+}
+
+.btn-outline-digitaliz {
+  background-color: #ffffff !important;
+  border-color: #b24693;
+  color: #b24693;
+}
+
+/* .btn-search { */
+.btn-addon2 {
+  background-color: #ffffff;
+  border: 1px solid #cfd4d9;
+  border-left: none;
+  color: #6e757c;
+}
+
+.btn-addon2.is-invalid {
+  border-color: #dc3545;
+}
+
+.btn-right {
+  float: right;
+}
+
+/* .btn-hide-pw {
+  background-color: #f6f1f6;
+  color: #6e757c;
+  border: 1px solid #cfd4d9;
+  border-left: 0px;
+}
+
+/* Alert */
+
+.alert-digitaliz {
+  background-color: rgba(178, 70, 147, 0.4);
+  border-color: #b24693;
+  color: #b24693;
+}
+
+.alert-delete {
+  background-color: #e4e092;
+  border-color: #ad9a32;
+  color: #ad9a32;
+}
+
+/* Input */
+input[type="checkbox"]:checked {
+  background-color: #b24693 !important;
+  border: none;
+}
+
+
+/* .btn-sm {
+  background-color: #B24693 !important;
+  color: #FFFFFF;
+  border: #FFFFFF;
+}
+
+.btn-edit {
+  background-color: #3F6AD8;
+  color: #FFFFFF;
+  border: none;
+}
+
+.page-active {
+  background-color: #B24693;
+}
+
+.btn-simpan {
+  background-color: #B24693;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.btn-add {
+  background-color: #B24693 !important;
+  color: #FFFFFF;
+  border: #FFFFFF;
+} */
+
+
+/* Input */
+
+input[type='checkbox']:checked {
+    background-color: #B24693 !important;
+    border: none;
+}
+
+.input-addon2 {
+    /* background-color: #FFFFFF;
+    border: 1px solid #CFD4D9; */
+    border-right: none;
+    font-size: 12px;
+    padding-right: .25rem;
+}
+
+/* Modal */
+
+.modal-dialog {
+  max-width: 800px;
+}
+
+.modal-sm {
+  max-width: 445px !important;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-header i.fa-trash-alt {
+  font-size: 40px;
+}
+
+/* Card */
+
+.card {
+  border: none;
+  border-radius: 0.5rem;
+}
+
+/* CSS Dashboard */
+
+.dashboard .card.card-satu {
+  background-color: #d98048;
+}
+
+.dashboard .card.card-dua {
+  background-color: #7484d6;
+}
+
+.dashboard .card.card-tiga {
+  background-color: #80c5c8;
+}
+
+.dashboard .card .card-footer {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* CSS Biodata */
+.bio-edit {
+  top: 85%;
+  left: 85%;
+}
+
+.bio-img {
+  width: 100px;
+  height: 100px;
+}
+
+.bio-menu {
+  background-color: rgba(232, 214, 227, 0.5);
+  border-radius: 0.5rem;
+}
+
+.nav-pills .nav-link {
+  color: #343a40;
+  font-family: "Poppins", sans-serif;
+  border-radius: 0;
+}
+.nav-pills .nav-link.active {
+  background-color: #ffffff;
+  color: #343a40;
+  border-bottom: 2px solid #3f6ad8;
+  font-weight: 600;
+}
+
+/* CSS Laporan */
+.laporan p {
+  font-size: 14px;
+}
+
+.laporan .isi {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.laporan .text-collapse {
+  cursor: pointer;
+}
+
+.laporan .lampiran {
+  color: #6e757c;
+  background-color: #F6F1F6;
+  font-size: 12px;
+}
+
+
+/* Datepicker */
+
+/* .datepicker-days .active.day {
+    background-color: #B24693 !important;
+} */
+
+/* CSS Program Magang */
+
+.program-magang .card-img-cover {
+  height: 100px;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.program-magang .card-img-photo {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  /* border: 1px solid white; */
+}
+
+/* Select2 */
+
+.select2 {
+  width: 100% !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.select2-container--classic.select2-container--focus .select2-selection--multiple {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25);
+}
+
+.select2-container--classic .select2-selection--multiple {
+  border: 1px solid #ced4da;
+}
+
+.select2-container--classic .select2-selection--multiple .select2-selection__choice {
+  background: #e9ecef;
+}
+
+/* DataTables */
+
+.page-link {
+  color: #b24693;
+}
+
+.page-item.active .page-link {
+  background-color: #b24693 !important;
+  border-color: #b24693 !important;
+}
+
+/* Dropify */
+.dropify-message p {
+  font-size: 16px;
+}
+
+.invoice-box {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  color: #555;
+}
+
+.invoice-box table {
+  width: 100%;
+  line-height: inherit;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.invoice-box table td {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.invoice-box table tr td:nth-child(2) {
+  text-align: right;
+}
+
+.invoice-box table tr.top table td {
+  padding-bottom: 20px;
+}
+
+.invoice-box table tr.top table td.title {
+  font-size: 45px;
+  line-height: 45px;
+  color: #333;
+}
+
+.invoice-box table tr.information table td {
+  padding-bottom: 40px;
+}
+
+.invoice-box table tr.heading td {
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.invoice-box table tr.details td {
+  padding-bottom: 20px;
+}
+
+.invoice-box table tr.item td {
+  border-bottom: 1px solid #eee;
+}
+
+.invoice-box table tr.item.last td {
+  border-bottom: none;
+}
+
+.invoice-box table tr.total td:nth-child(2) {
+  border-top: 2px solid #eee;
+  font-weight: bold;
+}
