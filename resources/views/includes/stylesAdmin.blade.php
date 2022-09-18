@@ -1,3 +1,6 @@
+{{-- logo --}}
+<link rel="shortcut icon" href="{{asset('image/logo-animalia.png')}}" />
+
 <!-- Custom fonts for this template-->
 <link href="{{ asset('Admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
