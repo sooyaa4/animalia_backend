@@ -26,6 +26,7 @@
                                 <th>Tanggal transaksi</th>
                                 <th>status pembayaran</th>
                                 <th>status transaksi</th>
+                                <th>jenis transaksi</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -37,6 +38,7 @@
                                 <td>{{ $d->transaksi->tanggal_pembelian}}</td>
                                 <td>{{ $d->status }}</td>
                                 <td>{{ $d->transaksi->status }}</td>
+                                <td>{{ $d->transaksi->jenis }}</td>
                                 <td class="text-center">
                                     <a href="/karyawan_transaksi/transaprod/{{ $d->id }}" class="btn btn-digitaliz"><i class="fas fa-external-link-alt"></i></a>
                                     <a href="{{ route('transaprod.edit', ['transaprod' => $d->id])}}" class="btn btn-primary btn-edit"><i class="fas fa-edit"></i></a>

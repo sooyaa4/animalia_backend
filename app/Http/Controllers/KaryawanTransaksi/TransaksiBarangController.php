@@ -20,8 +20,9 @@ class TransaksiBarangController extends Controller
      */
     public function index()
     {
+        $t = Transaksi::all();
         $transaksi = Pembayaran::with(['transaksi'])->where('status', 'Pembayaran di terima')->latest()->get();
-        // $transaksi = Transaksi::with(['detailbarang', 'pembayaran'])->where('jenis', 'Barang')->where('status', $status)->get();
+        // $transaksi = Transaksi::with(['detailbarang', 'pembayaran'])->where('jenis', 'Barang')->where('status', 'Pembayaran di terima')->get();
 
         return view('Transaksi.produk_beli', [
             'transaksi'   =>  $transaksi,
