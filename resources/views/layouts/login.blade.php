@@ -15,7 +15,6 @@
 </head>
 
 <body class="bg-gradient-primary">
-
 <div class="container">
         <!-- Outer Row -->
     <div class="row justify-content-center">
@@ -30,10 +29,14 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Halaman Karyawan</h1>
                                     </div>
+                                    @include('partials.alertModal')
                                 <form action="{{ route('auth.post.login') }}" method="POST">
                                     @csrf
                                         <div class="form-group">
-                                            <input type="email" name="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                                                <div class="invalid-feedback">
+                                                    Email wajib diisi.
+                                                </div>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password" required>
@@ -60,5 +63,13 @@
     @stack('after-script')
 
 </body>
-
+@push('after-script')
+    <script>
+        $(".form-control").on("input", function() {
+            if ($("#" + this.id).hasClass('is-invalid') ){
+                $("#" + this.id).removeClass('is-invalid');
+            }
+        });
+    </script>
+@endpush
 </html>
