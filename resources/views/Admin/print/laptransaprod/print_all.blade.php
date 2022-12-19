@@ -3,8 +3,8 @@
     <head>
         @include('includes.meta')
 
-        @include('includes.stylesAdmin')
-
+        {{-- @include('includes.stylesAdmin') --}}
+        <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min.css') }}" type="text/css"/>
         <style>
             #tabel-laporan{
                 overflow: hidden;
@@ -25,7 +25,7 @@
                 <header class="border-bottom pb-3 mb-3">
                     <div class="row row-cols-3 align-items-center">
                         <div class="col">
-                            <img src="{{ asset('image/animalia.png') }}" width="80px" class="img-fluid" alt="logo_digitaliz">
+                            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/image/animalia.png'))) }}" width="80px" class="img-fluid" alt="logo">
                         </div>
 
                         <div class="col text-center">

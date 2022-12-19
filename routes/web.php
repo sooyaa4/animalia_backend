@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\PelangganController;
 use App\Http\Controllers\Admin\TransaksiController;
 use App\Http\Controllers\Admin\JenisKirimController;
 use App\Http\Controllers\Admin\BarangMasukController;
+use App\Http\Controllers\Admin\CookieController;
 use App\Http\Controllers\Admin\TransaksiJasaController;
 use App\Http\Controllers\Admin\KategoriProdukController;
 use App\Http\Controllers\Admin\Laporan\LapBmasukController;
@@ -26,6 +27,7 @@ use App\Http\Controllers\Admin\Laporan\LapTransaksiProdController;
 use App\Http\Controllers\KaryawanTreatment\KarTreatmentController;
 
 use App\Http\Controllers\Admin\Laporan\LapTransaksiTreatController;
+use App\Http\Controllers\Admin\SessionController;
 use App\Http\Controllers\KaryawanPengiriman\PengirimanKarController;
 use App\Http\Controllers\KaryawanTransaksi\TransaksiBarangController;
 use App\Http\Controllers\KaryawanTransaksi\TransaksiTreatmentController;
@@ -36,6 +38,8 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/postLogin', [AuthController::class, 'postLogin'])->name('auth.post.login');
 Route::get('/postLogout', [AuthController::class, 'postLogout'])->name('auth.post.logout');
 
+Route::get('/setck',[CookieController::class,'setCookie']);
+Route::get('/getck',[CookieController::class,'getCookie']);
 
 Route::get('/', function () {
     return view('layouts.login');
@@ -47,6 +51,7 @@ Route::group(['middleware' => 'role:Admin'], function () {
     Route::prefix('Admin')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'index'])->name('Admin');
         
+        Route::get('/session',[SessionController::class,'index']);
         Route::resource('katbarang', KategoriProdukController::class);
         Route::resource('produkbar', ProdukController::class);
         Route::resource('produkbar.gambar', GalleryController::class);
@@ -70,6 +75,8 @@ Route::group(['middleware' => 'role:Admin'], function () {
         Route::resource('lappelanggan', LapPelangganController::class);
         Route::get('/print_pdf/{id}', [LapPelangganController::class, 'exportPDF']);
         Route::get('/print_all', [LapPelangganController::class, 'printAllReport'])->name('print.all.report');
+        Route::get('/export_user', [LapPelangganController::class, 'exportUsers'])->name('export.users');
+
 
         Route::resource('laptransaksiprod', LapTransaksiProdController::class);
         Route::get('/print_transaprod', [LapTransaksiProdController::class, 'printAllReporttransaprod'])->name('print.all.transapod');

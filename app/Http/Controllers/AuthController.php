@@ -9,8 +9,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -53,6 +55,14 @@ class AuthController extends Controller
         if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
 
             //Login Success
+            Session::push('user',[
+                'email' => $data['email'],
+            ]);
+
+            Cookie::get('user',[
+                'email' => $data['email'], 120
+            ]);
+            
             $role = Auth::user()->role;
             // activity()->log(Auth::user()->nama . ' berhasil login');
 
@@ -66,9 +76,14 @@ class AuthController extends Controller
 
     public function postLogout()
     {
-        $nama = Auth::user()->nama;
-        Auth::logout(); // menghapus session yang aktif
+        $nama = Auth::user()->email;
 
+        Session::pull('user',[
+            'email' => $nama,
+        ]);
+
+        Auth::logout();
+         // menghapus session yang aktif
         // activity()->log($nama . ' logout');
         return redirect()->route('login');
     }

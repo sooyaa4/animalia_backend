@@ -4,7 +4,9 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Laporan Data Pelanggan</h1>
     <a href="{{ route('print.all.report') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            class="fas fa-download fa-sm text-white-50"></i> Generate Report Pdf</a>
+    <a href="{{ route('export.users') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report Excel</a>
 </div>
 
 

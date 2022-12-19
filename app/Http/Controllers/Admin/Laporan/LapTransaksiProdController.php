@@ -8,6 +8,7 @@ use App\Models\Pengiriman;
 use App\Models\DetailBarang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
 
 class LapTransaksiProdController extends Controller
@@ -104,26 +105,47 @@ class LapTransaksiProdController extends Controller
 
     public function printAllReporttransaprod()
     {
+        set_time_limit(300);
         $data = Transaksi::with(['detailbarang'])->where('jenis', 'Barang')->get();
 
-        return view('Admin.print.laptransaprod.print_all', [
-            'data' => $data,
-            'title' => 'Laporan_Semua_Transaksi'
-        ]);
+        $pdf = PDF::loadView('Admin.print.laptransaprod.print_all', ['data'   => $data])->setOption(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download('laporan-pembelian-produk.pdf');
+
+        // return view('Admin.print.laptransaprod.print_all', [
+        //     'data' => $data,
+        //     'title' => 'Laporan_Semua_Transaksi'
+        // ]);
     }
 
     public function printPdf($id, Request $request)
     {
-        $transaksi = Transaksi::with(['detailbarang.produk'])->where('jenis', 'Barang')->find($id);
-        $detil = DetailBarang::with(['produk'])->where('transaksi_id', $id)->get();
-        $bayar = Pembayaran::with(['metodbayar','transaksi'])->where('transaksi_id', $id)->first();
-        $kirim = Pengiriman::with(['metodkirim','transaksi'])->where('transaksi_id', $id)->first();
+        $data = [
+                'transaksi'   => Transaksi::with(['detailbarang.produk'])->where('jenis', 'Barang')->find($id),
+                'detil' => DetailBarang::with(['produk'])->where('transaksi_id', $id)->get(),
+                'bayar' => Pembayaran::with(['metodbayar','transaksi'])->where('transaksi_id', $id)->first(),
+                'kirim' => Pengiriman::with(['metodkirim','transaksi'])->where('transaksi_id', $id)->first(),
+        ];
+        set_time_limit(300);
+        $pdf = pdf::loadView('Admin.print.laptransaprod.invoice', $data);
 
-        return view('Admin.print.laptransaprod.invoice', [
-            'transaksi'   => $transaksi,
-            'detil' => $detil,
-            'bayar' => $bayar,
-            'kirim' => $kirim,
-        ]);
+        return $pdf->download('invoice-pembelian-produk.pdf');
+
+        // $transaksi = Transaksi::with(['detailbarang.produk'])->where('jenis', 'Barang')->find($id);
+        // $detil = DetailBarang::with(['produk'])->where('transaksi_id', $id)->get();
+        // $bayar = Pembayaran::with(['metodbayar','transaksi'])->where('transaksi_id', $id)->first();
+        // $kirim = Pengiriman::with(['metodkirim','transaksi'])->where('transaksi_id', $id)->first();
+        // return $pdf->stream();
+        // return view('Admin.print.laptransaprod.invoice', ['transaksi'   => $transaksi, 'detil' => $detil,'bayar' => $bayar,'kirim' => $kirim ]);
+
+        // $pdf = App::make('dompdf.wrapper');
+        // $pdf = PDF::loadView('Admin.print.laptransaprod.invoice', ['transaksi'   => $transaksi,'detil' => $detil,'bayar' => $bayar,'kirim' => $kirim ]);
+
+        // return view('Admin.print.laptransaprod.invoice', [
+        //     'transaksi'   => $transaksi,
+        //     'detil' => $detil,
+        //     'bayar' => $bayar,
+        //     'kirim' => $kirim,
+        // ]);
     }
 }

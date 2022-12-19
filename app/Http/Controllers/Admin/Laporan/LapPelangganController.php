@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin\Laporan;
 
 use App\Models\Pelanggan;
+use App\Exports\ExportUser;
+use App\Exports\ExportUserView;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LapPelangganController extends Controller
 {
@@ -96,5 +99,10 @@ class LapPelangganController extends Controller
             'data' => $data,
             'title' => 'Laporan_Pelanggan_terdaftar'
         ]);
+    }
+    
+    public function exportUsers(Request $request){
+        // return Excel::download(new ExportUser, 'data_user.xlsx');
+        return Excel::download(new ExportUserView, 'data_user.xlsx');
     }
 }

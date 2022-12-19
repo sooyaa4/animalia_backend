@@ -3,8 +3,8 @@
     <head>
         @include('includes.meta')
 
-        @include('includes.stylesAdmin')
-
+        {{-- @include('includes.stylesAdmin') --}}
+		<link rel="stylesheet" href="{{ public_path('/css/custom.css') }}" type="text/css" />
         <style>
            	@media only screen and (max-width: 600px) {
 				.invoice-box table tr.top table td {
@@ -31,7 +31,7 @@
 						<table>
 							<tr>
 								<td class="title">
-									<img src="{{ asset('image/animalia.png') }}" alt="Company logo" style="width: 100%; max-width: 300px" />
+									<img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/image/animalia.png'))) }}" alt="Company logo" style="width: 100%; max-width: 300px" />
 								</td>
 
 								<td>
